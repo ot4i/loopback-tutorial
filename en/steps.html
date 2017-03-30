@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+ 
+	
+<!-- header::Start -->
+	<head>
+		<!-- Use Internet Explorer 9 Standards mode for Eclipse Browser Control - https://www.eclipse.org/swt/faq.php#browsernativeie and https://msdn.microsoft.com/en-us/library/jj676915%28v=vs.85%29.aspx -->
+  		<meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+		
+		<!-- Next 2 http=equiv headers required to disable caching the Eclipse Browser Widget -->
+		<meta http-equiv="Pragma" content="no-cache">
+  		<meta http-equiv="Expires" content="-1">
+
+		<meta charset="UTF-8"> 
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<meta name="copyright" content="Copyright IBM Corporation 2014" />
+		<meta name="abstract" content="IBM Integration Bus V10 Tutorial">
+		<meta name="author" content="IBM">
+		<meta name="description" content="IBM Integration Bus V10 Tutorial">
+		<meta name="keywords" content="keywords" > 
+		<meta name="robots" content="index,follow">
+		<meta name="source" content="IBM Integration Bus V10 Tutorial" /> 
+		
+		<title>IBM Integration Bus V10 Tutorial</title>
+
+    	<link rel="stylesheet" href="http://ot4i.github.io/iib-tutorials/css/main.css" />
+		<link rel="stylesheet" href="http://ot4i.github.io/iib-tutorials/css/app.css" />
+    	
+		<script src="http://ot4i.github.io/iib-tutorials/js/json2.js"></script>
+		<script src="http://ot4i.github.io/iib-tutorials/js/js2java.js"></script>
+		<script src="http://ot4i.github.io/iib-tutorials/js/js2java_steps.js"></script>
+		<script src="http://ot4i.github.io/iib-tutorials/js/vendor/modernizr.js"></script>
+	</head>
+<!-- header::End -->
+<!-- body::Start -->
+		<body>
+  	<!-- body content here -->
+	<div class="row">
+	  <div class="small-12 medium-12 large-12 columns">
+	    <p> </p>
+	  </div>
+	</div>
+	<div class="row">
+	  <div class="small-9 medium-9 large-9 columns">
+	    <h4 class="title">LoopBack Request node <action><button class="small radius button" tabindex="0" id="stepsViewDetails" onclick="viewDetails()"> View Details</button> </action></h4>
+	  </div>
+	  <div class="small-3 medium-3 large-3 columns">
+		<a href="javascript:;" onclick="openHelpSystem('/com.ibm.etools.msgbroker.helphome.doc/help_home_msgbroker.htm')" class="small right helplink">IBM Knowledge Center</a> 
+	  </div>
+	</div> 
+	<hr>
+	<div class="row">
+		<div class="small-10 medium-10 large-10 columns">
+		<h5> Learn how to use the LoopBackRequest nodes </h5>
+		</div>
+		<div class="small-2 medium-2 large-2 columns">
+			<button class="small radius button right" tabindex="0" id="backToGallery" onclick="backToGallery()"> Back To Gallery
+			</button>
+		</div>
+	</div>
+	<div class="row">          
+		  <div class="small-12 medium-12 large-12 columns">
+			<ul class="tabs vertical"> 
+				<li class="tab-title tab-title-small active">
+				  <a href="javascript:;" onclick="show('panel21')">Create</a> 
+				</li>
+				<li class="tab-title tab-title-small">
+				  <a href="javascript:;" onclick="show('panel31')">Prepare</a> 
+				</li>
+				<li class="tab-title tab-title-small">
+				  <a href="javascript:;" onclick="show('panel41')">Run</a> 
+				</li>
+			</ul>
+			<!-- editing -->
+			<div class="tabs-content panel-thin-blue vertical"> 
+		    	<div class="content active" id="panel21">
+		    		
+		    		<div class="small-10 medium-10 large-10 columns divider">
+					
+				      	<div class="row content-details">
+					      	<h4>Import projects</h4>
+					        
+						    
+								<p> When you click Import, an application will be created in your workspace: <span class="application">LoopBack</span>. </p>
+								
+							
+								<p> <span class="msgflow">create.msgflow</span> and <span class="msgflow">retrieve.msgflow</span> each implement a single message flow with a HTTPInput, LoopBackRequest node and HTTPReply node. In this tutorial, these two applications will run in the same integration server. With additional configuration they can run on different servers or even on different machines. </p>
+								
+							
+								<p> The difference between the two message flows is quite small.  The HTTP Input for <span class="msgflow">create.msgflow</span> has a path suffix '/create', where as the one for <span class="msgflow">retrieve.msgflow</span> is '/retrieve'. </p>
+								
+							
+								<p> The LoopBackRequest node for <span class="msgflow">create.msgflow</span> has the 'create' operation selected, where as the one for <span class="msgflow">retrieve.msgflow</span> is 'retrieve'. </p>
+								
+							
+								<p> These are explained in more detail when you move on to the Prepare tab, along with setup steps you need to complete before running the flows. </p>
+								
+							
+						</div>
+						
+						<div class="row content-details">
+							<h4>Find out more</h4>
+							<ul>
+							
+								
+								
+								<li> <a href="javascript:;" onclick="openExternalBrowser('https://developer.ibm.com/integration/blog/2016/09/01/basic-introduction-to-using-the-loopbackrequest-node/')" title="Basic introduction to using LoopBackRequest nodes  LoopBackRequest nodes Introduction">LoopBackRequest nodes Introduction</a> </li>
+									
+							
+								
+								
+								<li> <a href="javascript:;" onclick="openExternalBrowser('https://developer.ibm.com/integration/blog/2016/10/13/iib-v10-0-0-6-loopback-request-node-tutorial/')" title="More detailed LoopBackRequest Node tutorial LoopBackRequest node Tutorial">LoopBackRequest node Tutorial</a> </li>
+									
+							
+							</ul>
+						</div>
+						
+					</div>
+					
+					<div class="small-2 medium-2 large-2 columns">
+					
+					
+					<h4 class="tkaction"><a href="javascript:;" onclick="importArtifacts(); openResource('EventRoutingFlow')"> Import <img class="icon-image" src="http://ot4i.github.io/iib-tutorials/images/icons/ibmdesign/back-right-previous_128-orange.png"></a></h4>
+										
+				    </div>
+					
+		    	</div>
+		    	<div class="content" id="panel31">
+					
+		    		<div class="small-10 medium-10 large-10 columns divider">
+					
+						<div class="row content-details">
+						  	<h4>Imported projects</h4>
+						    
+						    
+								<p> Look inside application <span class="application">Loopback</span>. There are two flows that should be visible <span class="msgflow">retrieve</span> and <span class="resource">create</span>. The LoopBackRequest nodes in both flows are configured to reference a data source name of 'CLOUDANT', a LoopBack object of 'share_price' and a security identity of CLOUDANT_SEC_ID, to avoid putting in plaintext credentials. </p>
+								
+							
+								<p> In both cases, a HTTP call is used with the LoopBackRequest node to contact the Cloudant database and perform some action, which can be viewed on the HTTP Reply. </p>
+								
+							
+								<p> To allow the message flows to connect to the Cloudant database, there are some additional steps. </p>
+								
+								
+									
+									<ol>
+									
+									
+										<li> Sign into bluemix and create a new database.
+										
+										</li>
+									
+										<li> Then make sure that there is a datasources.json file in the connectors/loopback folder (located in the IIB folder ie /Program Files/IBM/IIB/10.0.0.7/connectors/loopback), otherwise create one. This is where the details for backend systems are stored, which is what we need for the cloudant connection.
+										
+										</li>
+									
+										<li> Install the loopback connector for cloudant: npm install loopback-connector-cloudant –save.
+										
+										</li>
+									
+										<li> Go back to Bluemix and find the username and password that are listed for the Cloudant service.
+										
+										</li>
+									
+										<li> Use mqsisetdbparamas to like these credentials to the username and password that were just found.
+										
+										</li>
+									
+										<li> Set the config for the request node by adding a stanza to the datasources.json file:{ 'CLOUDANT': {'database': 'share_price','name': 'CLOUDANT','port': 443,'connector': 'cloudant'}}
+										
+										</li>
+									
+									
+									</ol>
+									
+								
+							
+								<p> The application providing LoopBackRequest nodes are built into a BAR file <span class="resource">loopback_nodes.bar</span>. Deploy these now, using the link on the right of this page. Once you have done that, move on to the Run tab to exercise the flows and see them working. </p>
+								
+							
+						</div>
+						
+						<div class="row content-details">
+							<h4>Find out more</h4>
+							<ul>
+							
+								
+								
+								<li> <a href="javascript:;" onclick="openExternalBrowser('https://developer.ibm.com/integration/blog/2016/09/01/basic-introduction-to-using-the-loopbackrequest-node/')" title="Basic introduction to using LoopBackRequest nodes  LoopBackRequest nodes Introduction">LoopBackRequest nodes Introduction</a> </li>
+									
+							
+								
+								
+								<li> <a href="javascript:;" onclick="openExternalBrowser('https://developer.ibm.com/integration/blog/2016/10/13/iib-v10-0-0-6-loopback-request-node-tutorial/')" title="More detailed LoopBackRequest Node tutorial LoopBackRequest node Tutorial">LoopBackRequest node Tutorial</a> </li>
+									
+							
+							</ul>
+						</div>
+							
+					</div>
+					
+					<div class="small-2 medium-2 large-2 columns">
+					
+					
+					<h4 class="tkaction"><a href="javascript:;" onclick="deployArtifacts()"> Deploy <img class="icon-image" src="http://ot4i.github.io/iib-tutorials/images/icons/ibmdesign/back-right-previous_128-orange.png"></a></h4>						
+				    					
+				    </div>
+					
+		    	</div>
+		    	<div class="content" id="panel41">
+		    		
+		    		<div class="small-10 medium-10 large-10 columns divider">
+					
+				    	<div class="row content-details">
+					      	<h4>Follow these steps to complete the tutorial</h4>
+					        
+						    
+								<p> Use the <span class="resource">create.msgflow</span> in application <span class="application">Loopback</span> to run this tutorial. You should have already deployed the <span class="resource">loopback_nodes.bar</span> to the default integration server on your TESTNODE. </p>
+								
+								
+									
+									<ol>
+									
+									
+										<li> Open <span class="resource">create.msgflow</span>, and click the Flow Exerciser icon <img src="http://ot4i.github.io/ot4i.tutorials//dist/images/icons/iib/startFlowExerciser.png" alt> to deploy and start testing the flow.
+										
+										</li>
+									
+										<li> Click the Send Message icon <img src="http://ot4i.github.io/ot4i.tutorials/dist/images/icons/iib/sendMessage.png" alt> to select a message to send to the flow.
+										
+										</li>
+									
+										<li> Choose the input message (ie {'companyID':'103','company':'Barclays PLC','phone': '0800400100','price':171}) <span class="resource">JSON message</span>, and click Send. Your request message is sent to the HTTP input node.
+										
+										</li>
+									
+										<li> A response should be shown, which includes an id that has been given to the document (ie you’ll get a reply with the id that the database has created for it ie {'id':'111111111111111111','companyID':'103','company':'Barclays PLC','phone':'0800400100','price':171})
+										
+										</li>
+									
+										<li> After you close the dialog, the path taken through the messageflow is highlighted. Click on the message icon on each connection to see how the tree is updated by each node.
+										
+										</li>
+									
+										<li> Now that the database has been added to, when it is quieried it will be able to return an entry.
+										
+										</li>
+									
+										<li> Open <span class="resource">retrieve.msgflow</span>, and click the Flow Exerciser icon <img src="http://ot4i.github.io/ot4i.tutorials//dist/images/icons/iib/startFlowExerciser.png" alt> to deploy and start testing the flow.
+										
+										</li>
+									
+										<li> Click the Send Message icon <img src="http://ot4i.github.io/ot4i.tutorials/dist/images/icons/iib/sendMessage.png" alt> to select a message to send to the flow.
+										
+										</li>
+									
+										<li> Choose the input message (ie just '' will get all the items in the database) <span class="resource">JSON message</span>, and click Send. Your request message is sent to the HTTP input node.
+										
+										</li>
+									
+										<li> A response should be shown, which lists the item that you've added previously
+										
+										</li>
+									
+										<li> After you close the dialog, the path taken through the messageflow is highlighted. Click on the message icon on each connection to see how the tree is updated by each node.
+										
+										</li>
+									
+									
+									</ol>
+									
+								
+							
+								<p> This tutorial shows the LoopBackRequest node being used to add records to a database and retrieve those entries. You can also use these applications to experiment with running a series of flow that make calls to different databases. </p>
+								
+							
+						</div>
+						
+						<div class="row content-details"> 	
+							<h4>Find out more</h4>
+							<ul>
+							
+								
+								
+								<li> <a href="javascript:;" onclick="openExternalBrowser('https://developer.ibm.com/integration/blog/2016/09/01/basic-introduction-to-using-the-loopbackrequest-node/')" title="Basic introduction to using LoopBackRequest nodes  LoopBackRequest nodes Introduction">LoopBackRequest nodes Introduction</a> </li>
+									
+							
+								
+								
+								<li> <a href="javascript:;" onclick="openExternalBrowser('https://developer.ibm.com/integration/blog/2016/10/13/iib-v10-0-0-6-loopback-request-node-tutorial/')" title="More detailed LoopBackRequest Node tutorial LoopBackRequest node Tutorial">LoopBackRequest node Tutorial</a> </li>
+									
+							
+							</ul>
+						</div>
+							
+					</div>
+					
+					<div class="small-2 medium-2 large-2 columns">
+					
+					
+					
+					
+					
+					<h4 class="tkaction"><a href="javascript:;" onclick="cleanUp()" title="Clean up and remove any changes in your workspace made by the tutorial."> Clean Up <img class="icon-image" src="http://ot4i.github.io/iib-tutorials/images/icons/ibmdesign/close-cancel-error_128-red.png"></a></h4>
+				    
+					
+				    </div>
+					
+				</div>	
+			</div> <!-- tab-content -->
+		</div> <!-- columns -->
+	  </div> <!-- row --></body>
+		<script src="http://ot4i.github.io/iib-tutorials/js/vendor/jquery.js"></script>
+		<script src="http://ot4i.github.io/iib-tutorials/js/vendor/foundation.min.js"></script>
+		<script src="http://ot4i.github.io/iib-tutorials/js/main.js"></script>
+	</body>
+<!-- body::End -->
+
+</html>
