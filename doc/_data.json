@@ -1,5 +1,5 @@
-{
-    "version": "0.6",
+﻿{
+    "version": "0.1",
     "pageContent": 
 	{
         "_comments": "JSON object that contains data for page labels, buttons, etc.",
@@ -33,9 +33,9 @@
         "_common": 
 		{
             "name": "LoopBack Request node",
-            "shortDescription": "Learn how to use the LoopBackRequest nodes",
+            "shortDescription": "Learn how to use the LoopBackRequest node to create a JSON document in a Cloudant database",
             "durationText": "This tutorial takes approximately",
-            "durationTime": "20 minutes",
+            "durationTime": "10 minutes",
             "_resourceToOpenComment": "The ID of the first resource to open when the user imports the tutorial. Resource IDs are defined in the repo_metadata.json Tutorials listing on ot4i.",
             "resourceToOpen": "EventRoutingFlow",
             "helpLink": 
@@ -51,7 +51,7 @@
             "topicList": 
 			[
                 {
-                    "title": "LoopBack Request node"
+                    "title": "LoopBackRequest node"
                 },
                 {
                     "title": "Cloudant DB"
@@ -62,7 +62,7 @@
             "outcomeList": 
 			[
                 {
-                    "title": "To understand how to make remote calls between message flows that use a LoopBackRequest node and a Cloudant database"
+                    "title": "Use a LoopBackRequest node to insert JSON documents into a Cloudant database"
                 }
             ],
             "summary": 
@@ -72,13 +72,7 @@
                 "sections": 
 				[
                     {
-                        "section": "This tutorial shows how LoopBack Request nodes can be used to retrieve and add data to a database.  The example uses an application which provides two message flows: one for retrieving documents and one for adding documents to a NoSQL Cloudant database."
-                    },
-                    {
-                        "section": "It also shows how connectors from the LoopBack framework can be used to carry this out."
-                    },
-                    {
-                        "section": "The tutorial can be extended to create flows that retrieve data from one database (ie MongoDB), then performs some operation on the data before storing it in another database (ie Cloudant)."
+                        "section": "This tutorial demonstrates a simple message flow that receives a JSON message over HTTP, and uses a LoopBackRequest node to insert the document into a NoSQL Cloudant database. This tutorial describes how to use npm to install a LoopBack connector for Cloudant, and the required configuration to let the LoopBackRequest node locate and authenticate a connection with a Cloudant database instance running on IBM Bluemix."
                     }
                 ]
             },
@@ -89,14 +83,14 @@
 				"details": 
 				[
 					{
-						"title": "Basic introduction to using LoopBackRequest nodes ",
-						"description": "LoopBackRequest nodes Introduction",
-						"link": "https://developer.ibm.com/integration/blog/2016/09/01/basic-introduction-to-using-the-loopbackrequest-node/",
+						"title": "Working with LoopBack Connectors",
+						"description": "Working with LoopBack Connectors",
+						"link": "https://www.ibm.com/support/knowledgecenter/SSMKHH_10.0.0/com.ibm.etools.mft.doc/bz90800_.htm",
 						"type": "web"
 					},
 					{
-						"title": "More detailed LoopBackRequest Node tutorial",
-						"description": "LoopBackRequest node Tutorial",
+						"title": "More detailed LoopBackRequest node tutorial",
+						"description": "More detailed LoopBackRequest node Tutorial",
 						"link": "https://developer.ibm.com/integration/blog/2016/10/13/iib-v10-0-0-6-loopback-request-node-tutorial/",
 						"type": "web"
 					}
@@ -115,20 +109,17 @@
                     "sections": 
 					[
                         {
-                            "section": "When you click Import, an application will be created in your workspace: <span class='application'>LoopBack</span>."
+                            "section": "When you click Import, an application will be created in your workspace named <span class='application'>LoopBack</span>."
                         },
                         {
-                            "section": "<span class='msgflow'>create.msgflow</span> and <span class='msgflow'>retrieve.msgflow</span> each implement a single message flow with a HTTPInput, LoopBackRequest node and HTTPReply node. In this tutorial, these two applications will run in the same integration server. With additional configuration they can run on different servers or even on different machines."
+                            "section": "The application <span class='application'>LoopBack</span> contains a message flow named <span class='msgflow'>LoopBack_Cloudant.msgflow</span> which contains an HTTPInput node, LoopBackRequest node and HTTPReply node."
                         },
                         {
-                            "section": "The difference between the two message flows is quite small.  The HTTP Input for <span class='msgflow'>create.msgflow</span> has a path suffix '/create', where as the one for <span class='msgflow'>retrieve.msgflow</span> is '/retrieve'."
+                            "section": "The HTTPInput node has a path suffix <code>/LoopBack_Cloudant</code>."
                         },
                         {
-                            "section": "The LoopBackRequest node for <span class='msgflow'>create.msgflow</span> has the 'create' operation selected, where as the one for <span class='msgflow'>retrieve.msgflow</span> is 'retrieve'."
-                        },
-			{
-			    "section": "These are explained in more detail when you move on to the Prepare tab, along with setup steps you need to complete before running the flows."
-			}
+                            "section": "The LoopBackRequest node has a datasource property of <code>CLOUDANT</code>, and is configured to interact with a LoopBack object named <code>share_price</code> (in our example this is the name of the Cloudant database). The <code>Create</code> operation is selected so that the JSON structure passed in to the LoopBackRequest node is inserted into the Cloudant database."
+                        }
                     ]
                 },
                 "helpLinks": 
@@ -136,18 +127,18 @@
                     "title": "Find out more",
                     "details": 
 					[
-                        {
-                            "title": "Basic introduction to using LoopBackRequest nodes ",
-                            "description": "LoopBackRequest nodes Introduction",
-                            "link": "https://developer.ibm.com/integration/blog/2016/09/01/basic-introduction-to-using-the-loopbackrequest-node/",
-                            "type": "web"
-                        },
-                        {
-                            "title": "More detailed LoopBackRequest Node tutorial",
-                            "description": "LoopBackRequest node Tutorial",
-                            "link": "https://developer.ibm.com/integration/blog/2016/10/13/iib-v10-0-0-6-loopback-request-node-tutorial/",
-                            "type": "web"
-                        }
+					{
+						"title": "Working with LoopBack Connectors",
+						"description": "Working with LoopBack Connectors",
+						"link": "https://www.ibm.com/support/knowledgecenter/SSMKHH_10.0.0/com.ibm.etools.mft.doc/bz90800_.htm",
+						"type": "web"
+					},
+					{
+						"title": "More detailed LoopBackRequest node tutorial",
+						"description": "More detailed LoopBackRequest node Tutorial",
+						"link": "https://developer.ibm.com/integration/blog/2016/10/13/iib-v10-0-0-6-loopback-request-node-tutorial/",
+						"type": "web"
+					}
                     ]
                 },
                 "actions": 
@@ -167,46 +158,53 @@
                 "overview": 
 				{
                     "name": "Prepare",
-                    "heading": "Imported projects",
-                    "_prepareComment": "A description of what just happened when the user clicked Import, and what will happen when the user clicks Deploy.",
+                    "heading": "",
+                    "_prepareComment": "A description of the required preparation steps.",
                     "sections": 
 					[
                         {
-                            "section": "Look inside application <span class='application'>Loopback</span>. There are two flows that should be visible <span class='msgflow'>retrieve</span> and <span class='resource'>create</span>. The LoopBackRequest nodes in both flows are configured to reference a data source name of 'CLOUDANT', a LoopBack object of 'share_price' and a security identity of CLOUDANT_SEC_ID, to avoid putting in plaintext credentials."
-                        },
-                        {
-                            "section": "In both cases, a HTTP call is used with the LoopBackRequest node to contact the Cloudant database and perform some action, which can be viewed on the HTTP Reply."
-                        },
-                        {
-                            "section": "To allow the message flows to connect to the Cloudant database, there are some additional steps.",
+                            "section": "<h4>Create the Cloudant Database</h4>",
                             "steps": 
 							{
                                 "type": "ordered",
                                 "details": 
 								[
                                     {
-                                        "details": "Sign into bluemix and create a new database."
+                                        "details": "This tutorial assumes the availability of a Cloudant database. You can use IBM Bluemix to provide this (free of charge). Sign into IBM Bluemix, find the Cloudant NoSQL DB in the Data & Analytics section of the IBM Bluemix Catalog, and create an instance."
                                     },
                                     {
-                                        "details": "Then make sure that there is a datasources.json file in the connectors/loopback folder (located in the IIB folder ie /Program Files/IBM/IIB/10.0.0.7/connectors/loopback), otherwise create one. This is where the details for backend systems are stored, which is what we need for the cloudant connection."
+                                        "details": "Navigate to the Service Credentials section and you will find connection details that we will be using to tell IIB how to communicate with your Bluemix Cloudant instance. They should look similar to this:<br><span class='resource'>{<br>&quot;username&quot;: &quot;aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa-bluemix&quot;,<br>  &quot;password&quot;: &quot;bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb&quot;,<br>  &quot;host&quot;: &quot;aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa-bluemix.cloudant.com&quot;,<br>  &quot;port&quot;: 443,<br>  &quot;url&quot;: &quot;https://aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa-bluemix:bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb@aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa-bluemix.cloudant.com&quot;<br>}</span>"
                                     },
                                     {
-                                        "details": "Install the loopback connector for cloudant: npm install loopback-connector-cloudant –save."
-				    },
-				    {
-                                        "details": "Go back to Bluemix and find the username and password that are listed for the Cloudant service."
-				    },
-				    {
-                                        "details": "Use mqsisetdbparamas to like these credentials to the username and password that were just found."
-				    },
-				    {
-                                        "details": "Set the config for the request node by adding a stanza to the datasources.json file:{ 'CLOUDANT': {'database': 'share_price','name': 'CLOUDANT','port': 443,'connector': 'cloudant'}}"
-					}
+                                        "details": "Create a database called <code>share_price</code>."
+                                    }
+                                ]
+							}
+                        },
+                        {
+                            "section": "<h4>Configure the IIB LoopBack connector</h4>",
+                            "steps": 
+							{
+                                "type": "ordered",
+                                "details": 
+								[
+                                    {
+                                        "details": "To use the LoopBackRequest node in this tutorial, you must install the Cloudant LoopBack connector. Open the IBM Integration Bus Command Console:<br><code><span class='cmdname'> cd</span> <span class='varname'> %MQSI_WORKPATH%\\node_modules </span></code><br><code><span class='cmdname'> npm install loopback-connector-cloudant </span></code>"
+                                    },
+                                    {
+                                        "details": "If you don't already have one, create a datasources.json file in the connectors/loopback folder of your IIB workpath (by default on Windows, this will be at C:\\ProgramData\\IBM\\MQSI\\connectors\\loopback). This is where IIB stores connection information for Loopback Request node instances."
+                                    },
+                                    {
+                                        "details": "Add a stanza to the datasources.json file:<br><code><span class='cmdname'> { &quot;CLOUDANT&quot;:{&quot;database&quot;: &quot;share_price&quot;,&quot;name&quot;: &quot;CLOUDANT&quot;,&quot;host&quot;: &quot;aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa-bluemix.cloudant.com&quot;,&quot;port&quot;: 443,&quot;connector&quot;: &quot;cloudant&quot;}}</code>"
+                                    },
+                                    {
+                                        "details": "From your command console configure IIB with your Cloudant security credentials like this:<br><code><span class='cmdname'> mqsisetdbparms TESTNODE_10009 -n loopback::CLOUDANT_SEC_ID -u aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa-bluemix -p bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb </span></code>"
+                                    },
+                                    {
+                                        "details": "Restart your node."
+                                    }
                                 ]
                             }
-                        },
-			{
-			    "section":"The application providing LoopBackRequest nodes are built into a BAR file <span class='resource'>loopback_nodes.bar</span>. Deploy these now, using the link on the right of this page. Once you have done that, move on to the Run tab to exercise the flows and see them working."
                         }
                     ]
                 },
@@ -215,29 +213,18 @@
                     "title": "Find out more",
                     "details": 
 					[
-                        {
-                            "title": "Basic introduction to using LoopBackRequest nodes ",
-                            "description": "LoopBackRequest nodes Introduction",
-                            "link": "https://developer.ibm.com/integration/blog/2016/09/01/basic-introduction-to-using-the-loopbackrequest-node/",
-                            "type": "web"
-                        },
-                        {
-                            "title": "More detailed LoopBackRequest Node tutorial",
-                            "description": "LoopBackRequest node Tutorial",
-                            "link": "https://developer.ibm.com/integration/blog/2016/10/13/iib-v10-0-0-6-loopback-request-node-tutorial/",
-                            "type": "web"
-                        }
-                    ]
-                },
-                "actions": 
-				{
-                    "title": "Prepare Actions",
-                    "details": 
-					[
-                        {
-                            "name": "Deploy",
-                            "method": "deployArtifacts()"
-                        }
+					{
+						"title": "Working with LoopBack Connectors",
+						"description": "Working with LoopBack Connectors",
+						"link": "https://www.ibm.com/support/knowledgecenter/SSMKHH_10.0.0/com.ibm.etools.mft.doc/bz90800_.htm",
+						"type": "web"
+					},
+					{
+						"title": "More detailed LoopBackRequest node tutorial",
+						"description": "More detailed LoopBackRequest node Tutorial",
+						"link": "https://developer.ibm.com/integration/blog/2016/10/13/iib-v10-0-0-6-loopback-request-node-tutorial/",
+						"type": "web"
+					}
                     ]
                 }
             },
@@ -246,56 +233,41 @@
                 "overview": 
 				{
                     "name": "Run",
-                    "heading": "Follow these steps to complete the tutorial",
+                    "heading": "Use the Flow Exerciser to test the tutorial scenario",
                     "_runComment": "The full steps for the user to run through the tutorial. Use 'sections' to render paragraphs, 'steps' with a type of 'ordered' or 'unordered' to render HTML lists, and 'substeps' to render nested lists.",
                     "sections": 
 					[
                         {
-                            "section": "Use the <span class='resource'>create.msgflow</span> in application <span class='application'>Loopback</span> to run this tutorial. You should have already deployed the <span class='resource'>loopback_nodes.bar</span> to the default integration server on your TESTNODE.",
+                            "section": "Having prepared the scenario, the following steps describe how to use the Flow Exerciser to test the message flow:",
                             "steps": 
 							{
                                 "type": "ordered",
                                 "details": 
 								[
-                                    {
-                                        "details": "Open <span class='resource'>create.msgflow</span>, and click the Flow Exerciser icon <img src='http://ot4i.github.io/ot4i.tutorials//dist/images/icons/iib/startFlowExerciser.png' alt='' /> to deploy and start testing the flow."
-                                    },
-                                    {
-                                        "details": "Click the Send Message icon <img src='http://ot4i.github.io/ot4i.tutorials/dist/images/icons/iib/sendMessage.png' alt='' /> to select a message to send to the flow."
-                                    },
-                                    {
-                                        "details": "Choose the input message (ie {'companyID':'103','company':'Barclays PLC','phone': '0800400100','price':171}) <span class='resource'>JSON message</span>, and click Send. Your request message is sent to the HTTP input node."
-				                    },
-				                    {
-                                        "details": "A response should be shown, which includes an id that has been given to the document (ie you’ll get a reply with the id that the database has created for it ie {'id':'111111111111111111','companyID':'103','company':'Barclays PLC','phone':'0800400100','price':171})"
-				                    },
-				                    {
-                                        "details": "After you close the dialog, the path taken through the messageflow is highlighted. Click on the message icon on each connection to see how the tree is updated by each node."
-				                    },
-				                    {
-                                        "details": "Now that the database has been added to, when it is quieried it will be able to return an entry."
-					                },
-                                    {
-                                        "details": "Open <span class='resource'>retrieve.msgflow</span>, and click the Flow Exerciser icon <img src='http://ot4i.github.io/ot4i.tutorials//dist/images/icons/iib/startFlowExerciser.png' alt='' /> to deploy and start testing the flow."
-                                    },
-                                    {
-                                        "details": "Click the Send Message icon <img src='http://ot4i.github.io/ot4i.tutorials/dist/images/icons/iib/sendMessage.png' alt='' /> to select a message to send to the flow."
-                                    },
-                                    {
-                                        "details": "Choose the input message (ie just '' will get all the items in the database) <span class='resource'>JSON message</span>, and click Send. Your request message is sent to the HTTP input node."
-				                    },
-				                    {
-                                        "details": "A response should be shown, which lists the item that you've added previously"
-				                    },
-				                    {
-                                        "details": "After you close the dialog, the path taken through the messageflow is highlighted. Click on the message icon on each connection to see how the tree is updated by each node."
-				                    }
+                                        {
+                                          "details": "Open <span class='resource'>LoopBack_Cloudant.msgflow</span>."
+                                        },
+                                        {
+                                          "details": "Click the Flow Exerciser icon <img src='http://ot4i.github.io/ot4i.tutorials//dist/images/icons/iib/startFlowExerciser.png' alt='' /> to start testing the flow"
+                                        },
+                                        {
+                                            "details": "Click the Send Message icon <img src='http://ot4i.github.io/ot4i.tutorials/dist/images/icons/iib/sendMessage.png' alt='' />."
+                                        },
+                                        {
+                                            "details": "Select the saved message which has been provided, named <span class='resource'>InputMessage</span>, and click Send:<br><span class='resource'>{&quot;companyID&quot;:&quot;100&quot;,&quot;company&quot;:&quot;IBM UK Ltd&quot;,&quot;price&quot;:199}</span><br>Your message is sent to the HTTPInput node."
+                				        },                                        
+                                        {
+                                            "details": "A response should be shown, which now includes an id that the database has created and given to the document, which should look like this:<br><span class='resource'>{&quot;id&quot;:&quot;de28e5b037b01a3670d9b9f8d459deb5&quot;,&quot;companyID&quot;:&quot;100&quot;,&quot;company&quot;:&quot;IBM UK Ltd&quot;,&quot;price&quot;:199}</span>"
+                				        },
+                    				    {
+                                            "details": "After you close the dialog, the paths taken through the messageflow are highlighted. Click on the message icon on each connection to see how the tree has been updated by each node."
+				                        }
                                 ]
                             }
                         },
-			{
-			    "section": "This tutorial shows the LoopBackRequest node being used to add records to a database and retrieve those entries. You can also use these applications to experiment with running a series of flow that make calls to different databases."
-			}
+            			{
+			                "section": "This tutorial has shown the LoopBackRequest node creating a JSON document in a Cloudant database."
+			            }
                     ]
                 },
                 "helpLinks": 
@@ -303,18 +275,18 @@
                     "title": "Find out more",
                     "details": 
 					[
-                        {
-                            "title": "Basic introduction to using LoopBackRequest nodes ",
-                            "description": "LoopBackRequest nodes Introduction",
-                            "link": "https://developer.ibm.com/integration/blog/2016/09/01/basic-introduction-to-using-the-loopbackrequest-node/",
-                            "type": "web"
-                        },
-                        {
-                            "title": "More detailed LoopBackRequest Node tutorial",
-                            "description": "LoopBackRequest node Tutorial",
-                            "link": "https://developer.ibm.com/integration/blog/2016/10/13/iib-v10-0-0-6-loopback-request-node-tutorial/",
-                            "type": "web"
-                        }
+					{
+						"title": "Working with LoopBack Connectors",
+						"description": "Working with LoopBack Connectors",
+						"link": "https://www.ibm.com/support/knowledgecenter/SSMKHH_10.0.0/com.ibm.etools.mft.doc/bz90800_.htm",
+						"type": "web"
+					},
+					{
+						"title": "More detailed LoopBackRequest node tutorial",
+						"description": "More detailed LoopBackRequest node Tutorial",
+						"link": "https://developer.ibm.com/integration/blog/2016/10/13/iib-v10-0-0-6-loopback-request-node-tutorial/",
+						"type": "web"
+					}
                     ]
                 },
 				"exits": 
