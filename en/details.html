@@ -52,7 +52,7 @@
   <hr>
   <div class="row">
     <div class="small-12 medium-12 large-12 columns">
-      <h5> Learn how to use the LoopBackRequest nodes </h5>
+      <h5> Learn how to use the LoopBackRequest node to create a JSON document in a Cloudant database </h5>
     </div>
   </div>
   <div class="row content-details">
@@ -63,11 +63,7 @@
       <div class="row">
       
         
-        <p> This tutorial shows how LoopBack Request nodes can be used to retrieve and add data to a database.  The example uses an application which provides two message flows: one for retrieving documents and one for adding documents to a NoSQL Cloudant database. </p>
-      
-        <p> It also shows how connectors from the LoopBack framework can be used to carry this out. </p>
-      
-        <p> The tutorial can be extended to create flows that retrieve data from one database (ie MongoDB), then performs some operation on the data before storing it in another database (ie Cloudant). </p>
+        <p> This tutorial demonstrates a simple message flow that receives a JSON message over HTTP, and uses a LoopBackRequest node to insert the document into a NoSQL Cloudant database. This tutorial describes how to use npm to install a LoopBack connector for Cloudant, and the required configuration to let the LoopBackRequest node locate and authenticate a connection with a Cloudant database instance running on IBM Bluemix. </p>
       
       </div>	  
 		<!-- help links do not work in details page for GA 
@@ -78,12 +74,12 @@
 			
 				
 				
-				<li> <a href="javascript:;" onclick="openExternalBrowser('https://developer.ibm.com/integration/blog/2016/09/01/basic-introduction-to-using-the-loopbackrequest-node/')" title="Basic introduction to using LoopBackRequest nodes  LoopBackRequest nodes Introduction">LoopBackRequest nodes Introduction</a> </li>
+				<li> <a href="javascript:;" onclick="openExternalBrowser('https://www.ibm.com/support/knowledgecenter/SSMKHH_10.0.0/com.ibm.etools.mft.doc/bz90800_.htm')" title="Working with LoopBack Connectors Working with LoopBack Connectors">Working with LoopBack Connectors</a> </li>
 					
 			
 				
 				
-				<li> <a href="javascript:;" onclick="openExternalBrowser('https://developer.ibm.com/integration/blog/2016/10/13/iib-v10-0-0-6-loopback-request-node-tutorial/')" title="More detailed LoopBackRequest Node tutorial LoopBackRequest node Tutorial">LoopBackRequest node Tutorial</a> </li>
+				<li> <a href="javascript:;" onclick="openExternalBrowser('https://developer.ibm.com/integration/blog/2016/10/13/iib-v10-0-0-6-loopback-request-node-tutorial/')" title="More detailed LoopBackRequest node tutorial More detailed LoopBackRequest node Tutorial">More detailed LoopBackRequest node Tutorial</a> </li>
 					
 			
 			</ul>
@@ -100,7 +96,7 @@
               <img class="icon-image" src="http://ot4i.github.io/iib-tutorials/images/icons/ibmdesign/clock-time_128.png">
             </div>
             <div class="small-10 large-10 columns">
-              This tutorial takes approximately <b>20 minutes</b>.
+              This tutorial takes approximately <b>10 minutes</b>.
             </div>
           </div>
           <div class="row" style="margin-left: 1rem; text-align: center">
@@ -119,7 +115,7 @@
           <ul>
             
             
-              <li>LoopBack Request node</li>
+              <li>LoopBackRequest node</li>
             
               <li>Cloudant DB</li>
             
@@ -130,7 +126,7 @@
           <ul>
           
           
-            <li>To understand how to make remote calls between message flows that use a LoopBackRequest node and a Cloudant database</li>
+            <li>Use a LoopBackRequest node to insert JSON documents into a Cloudant database</li>
           
           </ul>
         </div>
