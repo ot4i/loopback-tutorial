@@ -1,4 +1,4 @@
-﻿{
+{
     "version": "0.1",
     "pageContent": 
 	{
@@ -198,7 +198,7 @@
                                         "details": "Add a stanza to the datasources.json file:<br><code><span class='cmdname'> { &quot;CLOUDANT&quot;:{&quot;database&quot;: &quot;share_price&quot;,&quot;name&quot;: &quot;CLOUDANT&quot;,&quot;host&quot;: &quot;aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa-bluemix.cloudant.com&quot;,&quot;port&quot;: 443,&quot;connector&quot;: &quot;cloudant&quot;}}</code>"
                                     },
                                     {
-                                        "details": "From your command console configure IIB with your Cloudant security credentials like this:<br><code><span class='cmdname'> mqsisetdbparms TESTNODE_10009 -n loopback::CLOUDANT_SEC_ID -u aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa-bluemix -p bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb </span></code>"
+                                        "details": "From your command console configure IIB with your Cloudant security credentials like this:<br><code><span class='cmdname'> mqsisetdbparms TESTNODE_userid -n loopback::CLOUDANT_SEC_ID -u aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa-bluemix -p bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb </span></code>"
                                     },
                                     {
                                         "details": "Restart your node."
