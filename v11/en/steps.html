@@ -22,7 +22,7 @@
 		<meta name="robots" content="index,follow">
 		<meta name="source" content="IBM Integration Bus V10 Tutorial" /> 
 		
-		<title>IBM Integration Bus V10 Tutorial</title>
+		<title>IBM App Connect Enterprise V11 Tutorial</title>
 
     	<link rel="stylesheet" href="https://ot4i.github.io/iib-tutorials/css/main.css" />
 		<link rel="stylesheet" href="https://ot4i.github.io/iib-tutorials/css/app.css" />
@@ -102,12 +102,12 @@
 							
 								
 								
-								<li> <a href="javascript:;" onclick="openExternalBrowser('https://www.ibm.com/support/knowledgecenter/SSMKHH_10.0.0/com.ibm.etools.mft.doc/bz90800_.htm')" title="Working with LoopBack Connectors Working with LoopBack Connectors">Working with LoopBack Connectors</a> </li>
+								<li> <a href="javascript:;" onclick="openExternalBrowser('https://www.ibm.com/support/knowledgecenter/en/SSTTDS_11.0.0/com.ibm.etools.mft.doc/bz90800_.htm')" title="Working with LoopBack Connectors Working with LoopBack Connectors">Working with LoopBack Connectors</a> </li>
 									
 							
 								
 								
-								<li> <a href="javascript:;" onclick="openExternalBrowser('https://developer.ibm.com/integration/blog/2016/10/13/iib-v10-0-0-6-loopback-request-node-tutorial/')" title="More detailed LoopBackRequest node tutorial More detailed LoopBackRequest node Tutorial">More detailed LoopBackRequest node Tutorial</a> </li>
+								<li> <a href="javascript:;" onclick="openExternalBrowser('https://developer.ibm.com/integration/blog/2016/10/13/iib-v10-0-0-6-loopback-request-node-tutorial/')" title="More detailed LoopBackRequest node tutorial More detailed LoopBackRequest node Tutorial (written for IIBv10)">More detailed LoopBackRequest node Tutorial (written for IIBv10)</a> </li>
 									
 							
 							</ul>
@@ -138,15 +138,15 @@
 									<ol>
 									
 									
-										<li> This tutorial assumes the availability of a Cloudant database. You can use IBM Bluemix to provide this (free of charge). Sign into IBM Bluemix, find the Cloudant NoSQL DB in the Data & Analytics section of the IBM Bluemix Catalog, and create an instance.
+										<li> This tutorial assumes the availability of a Cloudant database. You can use IBM Cloud to provide this (free of charge). Sign into IBM Cloud, find Cloudant in the Databases section of the Catalog, and create an instance of the Cloudant service. 
 										
 										</li>
 									
-										<li> Navigate to the Service Credentials section and you will find connection details that we will be using to tell IIB how to communicate with your Bluemix Cloudant instance. They should look similar to this:<br><span class="resource">{<br>&quot;username&quot;: &quot;aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa-bluemix&quot;,<br>  &quot;password&quot;: &quot;bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb&quot;,<br>  &quot;host&quot;: &quot;aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa-bluemix.cloudant.com&quot;,<br>  &quot;port&quot;: 443,<br>  &quot;url&quot;: &quot;https://aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa-bluemix:bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb@aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa-bluemix.cloudant.com&quot;<br>}</span>
+										<li> Navigate to the Service Credentials section. If this is a new instance of Cloudant you will need to generate some new Service credentials. If you are generating new credentials you can choose the default options. When you view the Service credentials, you will find connection details that we will be using to tell ACE how to communicate with your IBM Cloud Cloudant instance. They will look similar to the following JSON (don't be surprised if you see some additional fields listed as well - for example related to the use of IAM):<br><span class="resource">{<br>&quot;username&quot;: &quot;aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa-bluemix&quot;,<br>  &quot;password&quot;: &quot;bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb&quot;,<br>  &quot;host&quot;: &quot;aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa-bluemix.cloudantnosqldb.appdomain.cloud&quot;,<br>  &quot;port&quot;: 443,<br>  &quot;url&quot;: &quot;https://aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa-bluemix:bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb@aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa-bluemix.cloudant.com&quot;<br>}</span>
 										
 										</li>
 									
-										<li> Create a database called <code>share_price</code>.
+										<li> Switch to the Cloudant dashboard part of the service and create a database called <code>share_price</code>.
 										
 										</li>
 									
@@ -155,7 +155,7 @@
 									
 								
 							
-								<p> <h4>Configure the IIB LoopBack connector</h4> </p>
+								<p> <h4>Configure the ACE LoopBack connector</h4> </p>
 								
 								
 									
@@ -166,19 +166,27 @@
 										
 										</li>
 									
-										<li> If you don't already have one, create a datasources.json file in the connectors/loopback folder of your IIB workpath (by default on Windows, this will be at C:\ProgramData\IBM\MQSI\connectors\loopback). This is where IIB stores connection information for Loopback Request node instances.
+										<li> If you don't already have one, create a datasources.json file in the connectors/loopback folder of your ACE workpath (by default on Windows, this will be at C:\ProgramData\IBM\MQSI\connectors\loopback). This is where ACE stores connection information for Loopback Request node instances.
 										
 										</li>
 									
-										<li> Add a stanza to the datasources.json file:<br><code><span class="cmdname"> { &quot;CLOUDANT&quot;:{&quot;database&quot;: &quot;share_price&quot;,&quot;name&quot;: &quot;CLOUDANT&quot;,&quot;host&quot;: &quot;aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa-bluemix.cloudant.com&quot;,&quot;port&quot;: 443,&quot;connector&quot;: &quot;cloudant&quot;}}</span></code>
+										<li> Add a stanza to the datasources.json file:<br><code><span class="cmdname"> { &quot;CLOUDANT&quot;:{&quot;database&quot;: &quot;share_price&quot;,&quot;name&quot;: &quot;CLOUDANT&quot;,&quot;host&quot;: &quot;aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa-bluemix.cloudantnosqldb.appdomain.cloud&quot;,&quot;port&quot;: 443,&quot;connector&quot;: &quot;cloudant&quot;}}</span></code>
 										
 										</li>
 									
-										<li> From your command console configure IIB with your Cloudant security credentials like this:<br><code><span class="cmdname"> mqsisetdbparms TESTNODE_userid -n loopback::CLOUDANT_SEC_ID -u aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa-bluemix -p bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb </span></code>
+										<li> From your command console, create an integration node (if you don't already have one):<code><span class="cmdname"> mqsicreatebroker TESTNODE</span></code>
 										
 										</li>
 									
-										<li> Restart your node.
+										<li> From your command console, configure ACE with your Cloudant security credentials like this:<br><code><span class="cmdname"> mqsisetdbparms TESTNODE -n loopback::CLOUDANT_SEC_ID -u aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa-bluemix -p bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb </span></code>
+										
+										</li>
+									
+										<li> From your command console, start your node: <code><span class="cmdname"> mqsistart TESTNODE</span></code>
+										
+										</li>
+									
+										<li> From your command console, create an integration server (if you don't already have one): <code><span class="cmdname"> mqsicreateexecutiongroup TESTNODE -e default</span></code>
 										
 										</li>
 									
@@ -195,12 +203,12 @@
 							
 								
 								
-								<li> <a href="javascript:;" onclick="openExternalBrowser('https://www.ibm.com/support/knowledgecenter/SSMKHH_10.0.0/com.ibm.etools.mft.doc/bz90800_.htm')" title="Working with LoopBack Connectors Working with LoopBack Connectors">Working with LoopBack Connectors</a> </li>
+								<li> <a href="javascript:;" onclick="openExternalBrowser('https://www.ibm.com/support/knowledgecenter/en/SSTTDS_11.0.0/com.ibm.etools.mft.doc/bz90800_.htm')" title="Working with LoopBack Connectors Working with LoopBack Connectors">Working with LoopBack Connectors</a> </li>
 									
 							
 								
 								
-								<li> <a href="javascript:;" onclick="openExternalBrowser('https://developer.ibm.com/integration/blog/2016/10/13/iib-v10-0-0-6-loopback-request-node-tutorial/')" title="More detailed LoopBackRequest node tutorial More detailed LoopBackRequest node Tutorial">More detailed LoopBackRequest node Tutorial</a> </li>
+								<li> <a href="javascript:;" onclick="openExternalBrowser('https://developer.ibm.com/integration/blog/2016/10/13/iib-v10-0-0-6-loopback-request-node-tutorial/')" title="More detailed LoopBackRequest node tutorial More detailed LoopBackRequest node Tutorial (written for IIBv10)">More detailed LoopBackRequest node Tutorial (written for IIBv10)</a> </li>
 									
 							
 							</ul>
@@ -264,12 +272,12 @@
 							
 								
 								
-								<li> <a href="javascript:;" onclick="openExternalBrowser('https://www.ibm.com/support/knowledgecenter/SSMKHH_10.0.0/com.ibm.etools.mft.doc/bz90800_.htm')" title="Working with LoopBack Connectors Working with LoopBack Connectors">Working with LoopBack Connectors</a> </li>
+								<li> <a href="javascript:;" onclick="openExternalBrowser('https://www.ibm.com/support/knowledgecenter/en/SSTTDS_11.0.0/com.ibm.etools.mft.doc/bz90800_.htm')" title="Working with LoopBack Connectors Working with LoopBack Connectors">Working with LoopBack Connectors</a> </li>
 									
 							
 								
 								
-								<li> <a href="javascript:;" onclick="openExternalBrowser('https://developer.ibm.com/integration/blog/2016/10/13/iib-v10-0-0-6-loopback-request-node-tutorial/')" title="More detailed LoopBackRequest node tutorial More detailed LoopBackRequest node Tutorial">More detailed LoopBackRequest node Tutorial</a> </li>
+								<li> <a href="javascript:;" onclick="openExternalBrowser('https://developer.ibm.com/integration/blog/2016/10/13/iib-v10-0-0-6-loopback-request-node-tutorial/')" title="More detailed LoopBackRequest node tutorial More detailed LoopBackRequest node Tutorial (written for IIBv10)">More detailed LoopBackRequest node Tutorial (written for IIBv10)</a> </li>
 									
 							
 							</ul>
