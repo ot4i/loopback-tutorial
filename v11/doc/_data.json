@@ -41,7 +41,7 @@
             "helpLink": 
 			{
                 "text": "IBM Knowledge Center",
-                "link": "/com.ibm.etools.msgbroker.helphome.doc/help_home_msgbroker.htm"
+           		"link": "https://www.ibm.com/support/knowledgecenter/en/SSTTDS_11.0.0/com.ibm.ace.home.doc/help_home.htm"
             }
         },
         "pageDetails": 
@@ -294,19 +294,7 @@
 						"type": "web"
 					}
                     ]
-                },
-				"exits": 
-				{
-					"title": "Run Exits",
-					"details": 
-					[
-						{
-							"name": "Clean Up",
-							"description": "Clean up and remove any changes in your workspace made by the tutorial.",
-							"method": "cleanUp()"
-						}
-					]
-				}
+                }
             }
         }
     }
