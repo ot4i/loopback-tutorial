@@ -40,8 +40,8 @@
             "resourceToOpen": "MainFlow",
             "helpLink": 
 			{
-                "text": "IBM Knowledge Center",
-           		"link": "https://www.ibm.com/support/knowledgecenter/en/SSTTDS_11.0.0/com.ibm.ace.home.doc/help_home.htm"
+                "text": "IBM Documentation",
+           		"link": "https://www.ibm.com/docs/SSTTDS_12.0/com.ibm.etools.mft.doc/acesw_home.html"
             }
         },
         "pageDetails": 
@@ -85,7 +85,7 @@
 					{
 						"title": "Working with LoopBack Connectors",
 						"description": "Working with LoopBack Connectors",
-						"link": "https://www.ibm.com/support/knowledgecenter/en/SSTTDS_11.0.0/com.ibm.etools.mft.doc/bz90800_.htm",
+						"link": "https://www.ibm.com/docs/SSTTDS_12.0/com.ibm.etools.mft.doc/bz90800_.htm",
 						"type": "web"
 					},
 					{
@@ -130,7 +130,7 @@
 					{
 						"title": "Working with LoopBack Connectors",
 						"description": "Working with LoopBack Connectors",
-						"link": "https://www.ibm.com/support/knowledgecenter/en/SSTTDS_11.0.0/com.ibm.etools.mft.doc/bz90800_.htm",
+						"link": "https://www.ibm.com/docs/SSTTDS_12.0/com.ibm.etools.mft.doc/bz90800_.htm",
 						"type": "web"
 					},
 					{
@@ -222,7 +222,7 @@
 										{
 						"title": "Working with LoopBack Connectors",
 						"description": "Working with LoopBack Connectors",
-						"link": "https://www.ibm.com/support/knowledgecenter/en/SSTTDS_11.0.0/com.ibm.etools.mft.doc/bz90800_.htm",
+						"link": "https://www.ibm.com/docs/SSTTDS_12.0/com.ibm.etools.mft.doc/bz90800_.htm",
 						"type": "web"
 					},
 					{
@@ -284,7 +284,7 @@
 										{
 						"title": "Working with LoopBack Connectors",
 						"description": "Working with LoopBack Connectors",
-						"link": "https://www.ibm.com/support/knowledgecenter/en/SSTTDS_11.0.0/com.ibm.etools.mft.doc/bz90800_.htm",
+						"link": "https://www.ibm.com/docs/SSTTDS_12.0/com.ibm.etools.mft.doc/bz90800_.htm",
 						"type": "web"
 					},
 					{
